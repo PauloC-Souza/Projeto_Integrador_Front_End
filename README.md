@@ -1,4 +1,4 @@
-# verbas-karon-metro-frontend
+# projeto-integrador-vii-frontend
 
 ## Project setup
 ```
