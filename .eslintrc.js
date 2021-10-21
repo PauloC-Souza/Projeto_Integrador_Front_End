@@ -1,29 +1,36 @@
 module.exports = {
-  root: true,
-  env: {
-    node: true,
-  },
-  extends: [
-    'plugin:vue/essential',
-    '@vue/airbnb',
-    '@vue/typescript/recommended',
-  ],
-  parserOptions: {
-    ecmaVersion: 2020,
-  },
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-  },
-  overrides: [
-    {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
-      ],
-      env: {
-        jest: true,
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/essential",
+        "plugin:@typescript-eslint/eslint-recommended"
+    ],
+    env: {
+        node: true,
       },
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
     },
-  ],
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "parser": "@typescript-eslint/parser",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "vue",
+        "@typescript-eslint"
+    ],
+    "rules": {
+    },
+    overrides: [
+        {
+          files: [
+            '**/__tests__/*.{j,t}s?(x)',
+            '**/tests/unit/**/*.spec.{j,t}s?(x)',
+          ],
+          env: {
+            jest: true,
+          },
+        },
+      ],
 };
