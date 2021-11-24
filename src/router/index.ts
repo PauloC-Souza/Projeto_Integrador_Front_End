@@ -27,6 +27,11 @@ const routes: Array<RouteConfig> = [
     path: '/revenda',
     name: 'Revenda',
     component: Revenda,
+
+  {
+    path: '/dashboard',
+    name: 'DashBoard',
+    component: DashBoard,
   },
 ];
 
