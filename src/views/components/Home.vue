@@ -1,55 +1,64 @@
 <template>
-  <div class='bg'>
-    <v-card class='mx-auto mt-10' max-width='90%' outlined>
-      <v-list-item three-line>
-        <v-list-item-content>
-          <div class='text-overline mb-4'>
-            Programa de benefícios AMBEV
-          </div>
-          <v-list-item-title class='text-h3 mb-1'>
-            {{ user.name }}
-          </v-list-item-title>
-          <v-list-item-subtitle class='text-h4'
-            >{{ user.balance }} CRÉDITOS</v-list-item-subtitle
-          >
-        </v-list-item-content>
-
-        <v-list-item-avatar class='ma-10' size='120'>
-          <img :src='Leonardo' alt='' />
-        </v-list-item-avatar>
-      </v-list-item>
-
-      <v-card-actions class="d-block">
-        <v-row class="mt-10 justify-center">
-            <v-data-table
-                style='width: 80%'
-                :headers='headers'
-                :items='desserts'
-                :items-per-page='5'
-                class='elevation-1'
-            ></v-data-table>
-        </v-row>
-        <v-row class="mb-5 mt-5 justify-center">
-            <v-btn
-            class="mx-2"
-            fab
-            dark
-            color="teal"
+  <div>
+    <app-header class="mb-10"/>
+    <div class='bg'>
+      <v-card class='mx-auto mt-16' max-width='90%' outlined>
+        <v-list-item class="mt-10" three-line>
+          <v-list-item-avatar class='ma-10' size='120'>
+            <img :src='Leonardo' alt='' />
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <div class='text-overline mb-4'>
+              Programa de benefícios AMBEV
+            </div>
+            <v-list-item-title class='text-h3 mb-1'>
+              {{ user.name }}
+            </v-list-item-title>
+            <v-list-item-subtitle class='text-h4'
+              >{{ user.balance }} CRÉDITOS</v-list-item-subtitle
             >
-            <v-icon dark>
-                mdi-format-list-bulleted-square
-            </v-icon>
+          </v-list-item-content>
+          <div>
+            <v-btn
+              color="blue-grey"
+              class="ma-2 white--text"
+              @click="goTo()"
+            >
+              Ver ofertas
+              <v-icon
+                right
+                dark
+              >
+                mdi-cart
+              </v-icon>
             </v-btn>
-        </v-row>
-      </v-card-actions>
-    </v-card>
+          </div>
+        </v-list-item>
+
+        <v-card-actions class="d-block">
+          <v-row class="mt-10 mb-6 justify-center">
+              <v-data-table
+                  style='width: 80%'
+                  :headers='headers'
+                  :items='desserts'
+                  :items-per-page='5'
+                  class='elevation-1'
+              ></v-data-table>
+          </v-row>
+        </v-card-actions>
+      </v-card>
+    </div>
   </div>
 </template>
 
 <script>
+import AppHeader from '../AppHeader.vue';
 import Leonardo from '../../assets/leonardo.jpg';
 
 export default {
+  components: {
+    AppHeader,
+  },
   data() {
     return {
       Leonardo,
@@ -91,11 +100,17 @@ export default {
       ],
     };
   },
+  methods: {
+    goTo() {
+      this.$router.push('/ofertas');
+    },
+  },
 };
 </script>
 <style scoped>
 .bg {
   background-color: #081c39;
-  max-height: 300px;
+  max-height: 400px;
+  margin-top: 50px;
 }
 </style>
