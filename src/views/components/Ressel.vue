@@ -99,7 +99,6 @@
 
 <script>
 import AppHeader from '../AppHeader.vue';
-import Leonardo from '../../assets/leonardo.jpg';
 
 export default {
   components: {
